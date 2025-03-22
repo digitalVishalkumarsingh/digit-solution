@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <div className="bg-blue-100 py-12 px-6 md:px-20 mt-15">
+    <div className="bg-blue-100 py-12 px-6 md:px-20 mt-16">
       <div className="max-w-7xl mx-auto text-center">
         {/* Page Heading */}
         <motion.h2
@@ -27,7 +27,7 @@ const About = () => {
 
         {/* Description */}
         <motion.p
-          className="text-lg text-gray-600 mb-8"
+          className="text-lg text-gray-600 mb-8 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.5 }}
@@ -36,7 +36,7 @@ const About = () => {
         </motion.p>
 
         <motion.p
-          className="text-lg text-gray-600 mb-8"
+          className="text-lg text-gray-600 mb-8 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.7 }}
@@ -51,23 +51,24 @@ const About = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.9 }}
         >
-          <div className="w-full md:w-1/3 p-4 bg-white rounded-lg shadow-md m-4 border border-orange-200">
-            <h4 className="text-lg font-bold text-orange-600 mb-2">AC Repair</h4>
-            <p className="text-gray-600">Expert AC repair services for all types of air conditioners.</p>
-          </div>
-          <div className="w-full md:w-1/3 p-4 bg-white rounded-lg shadow-md m-4 border border-orange-200">
-            <h4 className="text-lg font-bold text-orange-600 mb-2">Refrigerator Repair</h4>
-            <p className="text-gray-600">Efficient refrigerator repair solutions to keep your food fresh.</p>
-          </div>
-          <div className="w-full md:w-1/3 p-4 bg-white rounded-lg shadow-md m-4 border border-orange-200">
-            <h4 className="text-lg font-bold text-orange-600 mb-2">Washing Machine Repair</h4>
-            <p className="text-gray-600">Prompt washing machine repair services for all brands.</p>
-          </div>
+          {[
+            { title: "AC Repair", desc: "Expert AC repair services for all types of air conditioners." },
+            { title: "Refrigerator Repair", desc: "Efficient refrigerator repair solutions to keep your food fresh." },
+            { title: "Washing Machine Repair", desc: "Prompt washing machine repair services for all brands." },
+          ].map((service, index) => (
+            <div
+              key={index}
+              className="w-full sm:w-1/2 md:w-1/3 p-5 bg-white rounded-lg shadow-md m-4 border border-orange-200"
+            >
+              <h4 className="text-lg font-bold text-orange-600 mb-2">{service.title}</h4>
+              <p className="text-gray-600">{service.desc}</p>
+            </div>
+          ))}
         </motion.div>
 
         {/* Commitment to Quality */}
         <motion.p
-          className="text-lg text-gray-600 mb-8"
+          className="text-lg text-gray-600 mb-8 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.1 }}
@@ -84,7 +85,7 @@ const About = () => {
           <p className="text-xl font-semibold text-blue-800 mb-4">
             Contact us today to schedule your <span className="text-orange-600 font-bold">AC Repair in Varanasi</span>, <span className="text-blue-800 font-bold">Refrigerator Repair</span>, or any other home appliance repair service. We are available 24/7 to provide you with prompt and reliable service.
           </p>
-          <button className="text-lg bg-orange-600 px-4 py-2 rounded-md text-white hover:bg-orange-700 transition-colors duration-300">
+          <button className="text-lg bg-orange-600 px-6 py-3 rounded-lg text-white hover:bg-orange-700 transition-transform transform hover:scale-105">
             Book Now @ <span className="font-bold">7324802379</span>
           </button>
         </motion.div>
