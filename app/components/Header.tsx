@@ -1,126 +1,299 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
-import { motion } from "framer-motion"; // Import framer-motion
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const services = [
+  { label: "AC Services", href: "/acrepair", icon: "❄️" },
+  { label: "Washing Machine", href: "/washing-machine-services", icon: "🫧" },
+  { label: "Refrigerator", href: "/refrigerator-services", icon: "🧊" },
+  { label: "RO Purifier", href: "/ro-purifier-services", icon: "💧" },
+  { label: "Geyser Repair", href: "/geyser-services", icon: "🔥" },
+  { label: "Microwave", href: "/microwave-services", icon: "📡" },
+];
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 const Header = () => {
-  // Dropdown toggle state for mobile
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Toggle dropdown state on mouse enter and leave
-  const handleMouseEnter = () => setIsDropdownOpen(true);
-  const handleMouseLeave = () => setIsDropdownOpen(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 fixed top-0 left-0 w-full z-50 shadow-lg">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          {/* Logo Section */}
-          <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <motion.img
-              src="/Dizit-Solution.webp" // Logo
-              className="h-8"
-              alt="Dizit Solution Logo"
-              whileHover={{ scale: 1.1 }} // Add hover animation
-              transition={{ duration: 0.3 }}
-            />
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        .dizit-header * { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link {
+          position: relative;
+          font-size: 14px;
+          font-weight: 500;
+          color: #1e293b;
+          text-decoration: none;
+          padding: 6px 0;
+          transition: color 0.2s;
+        }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0; left: 0;
+          width: 0; height: 2px;
+          background: #f97316;
+          border-radius: 2px;
+          transition: width 0.25s ease;
+        }
+        .nav-link:hover { color: #f97316; }
+        .nav-link:hover::after { width: 100%; }
+        .service-card {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 14px;
+          border-radius: 10px;
+          text-decoration: none;
+          color: #334155;
+          font-size: 13.5px;
+          font-weight: 500;
+          transition: background 0.18s, color 0.18s;
+        }
+        .service-card:hover {
+          background: #fff7ed;
+          color: #ea580c;
+        }
+        .book-btn {
+          background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+          color: white;
+          font-size: 14px;
+          font-weight: 600;
+          padding: 9px 20px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          box-shadow: 0 4px 14px rgba(249,115,22,0.35);
+          transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .book-btn:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 6px 18px rgba(249,115,22,0.45);
+        }
+        .phone-pill {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
+          color: #15803d;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 6px 14px;
+          border-radius: 999px;
+        }
+      `}</style>
+
+      <nav
+        className="dizit-header"
+        style={{
+          position: "fixed",
+          top: 0, left: 0,
+          width: "100%",
+          zIndex: 1000,
+          background: scrolled ? "rgba(255,255,255,0.97)" : "white",
+          backdropFilter: "blur(12px)",
+          boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.10)" : "0 1px 0 #e2e8f0",
+          transition: "box-shadow 0.3s",
+        }}
+      >
+        {/* Top bar */}
+        <div style={{ background: "#1e293b", padding: "7px 0", textAlign: "center" }}>
+          <span style={{ color: "#94a3b8", fontSize: 12, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            ⚡ Same-day service available · 
+            <span style={{ color: "#f97316", fontWeight: 600 }}> Call: 911256473</span>
+            &nbsp;· Varanasi & nearby areas
+          </span>
+        </div>
+
+        {/* Main nav */}
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          
+          {/* Logo */}
+          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
+            <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.2 }}>
+              <img src="/Dizit-Solution.webp" alt="Dizit Solution" style={{ height: 36 }} />
+            </motion.div>
           </Link>
 
-          {/* Hamburger Button for Mobile */}
-          <button
-            data-collapse-toggle="navbar-dropdown"
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-dropdown"
-            aria-expanded={isDropdownOpen ? "true" : "false"}
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Keep toggle for mobile dropdown
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-          </button>
+          {/* Desktop links */}
+          <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="desktop-nav">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="nav-link">
+                {link.label}
+              </Link>
+            ))}
 
-          {/* Navbar Links for Desktop */}
-          <div className={`md:block ${isDropdownOpen ? "block" : "hidden"}`} id="navbar-dropdown">
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 justify-center">
-              {/* Home */}
-              <li>
-                <Link href="/" className="block py-2 px-3 text-blue-700 hover:text-orange-600 hover:underline md:p-0 md:dark:text-blue-500 dark:hover:text-orange-600 transition duration-200">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="block py-2 px-3 text-blue-700 hover:text-orange-600 hover:underline md:p-0 md:dark:text-blue-500 dark:hover:text-orange-600 transition duration-200">
-                  About
-                </Link>
-              </li>
-
-              {/* Dropdown Section */}
-              <ul className="flex space-x-4">
-                <li
-                  className="relative"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave} // Show dropdown on hover
+            {/* Services Dropdown */}
+            <div
+              style={{ position: "relative" }}
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button
+                className="nav-link"
+                style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}
+              >
+                Services
+                <motion.svg
+                  width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth={2.5}
+                  animate={{ rotate: servicesOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <motion.button
-                    id="dropdownNavbarLink"
-                    data-dropdown-toggle="dropdownNavbar"
-                    className="flex items-center justify-between w-full py-2 px-3 text-blue-700 hover:text-orange-600 md:p-0 md:w-auto md:dark:text-blue-500 dark:hover:text-orange-600 transition duration-200"
+                  <path d="M6 9l6 6 6-6" />
+                </motion.svg>
+              </button>
+
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                    transition={{ duration: 0.2 }}
+                    style={{
+                      position: "absolute",
+                      top: "calc(100% + 12px)",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      background: "white",
+                      borderRadius: 16,
+                      boxShadow: "0 20px 60px rgba(0,0,0,0.14)",
+                      border: "1px solid #e2e8f0",
+                      padding: 16,
+                      width: 320,
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      gap: 6,
+                    }}
                   >
-                    Services
-                    <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m1 1 4 4 4-4" />
-                    </svg>
-                  </motion.button>
+                    <div style={{ gridColumn: "1/-1", paddingBottom: 10, marginBottom: 4, borderBottom: "1px solid #f1f5f9" }}>
+                      <span style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", letterSpacing: "0.08em", textTransform: "uppercase", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                        Our Services
+                      </span>
+                    </div>
+                    {services.map((s) => (
+                      <Link key={s.href} href={s.href} className="service-card">
+                        <span style={{ fontSize: 18 }}>{s.icon}</span>
+                        <span>{s.label}</span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
 
-                  {/* Dropdown menu with framer-motion slide effect */}
-                  {isDropdownOpen && (
-                    <motion.div
-                      id="dropdownNavbar"
-                      className="absolute z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <ul className="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                        <li>
-                          <Link href="/acrepair" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                            AC Services
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/washing-machine-services" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                            Washing Machine Services
-                          </Link>
-                        </li>
-                      </ul>
-                    </motion.div>
-                  )}
-                </li>
-              </ul>
+          {/* Right side */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <div className="phone-pill desktop-only">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+              07324802379
+            </div>
+            <Link href="/contact" style={{ textDecoration: "none" }}>
+              <motion.button
+                className="book-btn"
+                whileTap={{ scale: 0.97 }}
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Book Service
+              </motion.button>
+            </Link>
 
-              {/* Other Links */}
-              <li>
-                <Link href="/contact" className="block py-2 px-3 text-blue-700 hover:text-orange-600 hover:underline md:p-0 md:dark:text-blue-500 dark:hover:text-orange-600 transition duration-200">
-                  Contact
-                </Link>
-              </li>
-
-              {/* Book Service Button */}
-              <li>
-                <Link href="/contact">
-                  <button className="block py-2 px-3 text-white bg-blue-600 hover:bg-orange-600 rounded-md">
-                    Book Service
-                  </button>
-                </Link>
-              </li>
-            </ul>
+            {/* Hamburger */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              style={{ background: "none", border: "1px solid #e2e8f0", borderRadius: 8, padding: "7px 9px", cursor: "pointer", display: "none" }}
+              className="hamburger"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#334155" strokeWidth={2.5}>
+                {mobileOpen
+                  ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
+                  : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>
+                }
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              style={{ background: "white", borderTop: "1px solid #f1f5f9", overflow: "hidden" }}
+            >
+              <div style={{ padding: "16px 24px 24px", display: "flex", flexDirection: "column", gap: 4 }}>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    style={{ padding: "11px 14px", borderRadius: 10, fontWeight: 500, fontSize: 15, color: "#1e293b", textDecoration: "none", background: "transparent", transition: "background 0.15s" }}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <div style={{ borderTop: "1px solid #f1f5f9", marginTop: 8, paddingTop: 12 }}>
+                  <p style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Services</p>
+                  {services.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 10, fontSize: 14, fontWeight: 500, color: "#334155", textDecoration: "none" }}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      <span style={{ fontSize: 18 }}>{s.icon}</span>
+                      {s.label}
+                    </Link>
+                  ))}
+                </div>
+                <Link href="/contact" style={{ textDecoration: "none", marginTop: 12 }} onClick={() => setMobileOpen(false)}>
+                  <button className="book-btn" style={{ width: "100%", justifyContent: "center" }}>
+                    Book a Service
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Responsive styles */}
+        <style>{`
+          @media (max-width: 768px) {
+            .desktop-nav { display: none !important; }
+            .desktop-only { display: none !important; }
+            .hamburger { display: block !important; }
+          }
+        `}</style>
       </nav>
-    </div>
+
+      {/* Spacer for fixed nav */}
+      <div style={{ height: 100 }} />
+    </>
   );
 };
 
