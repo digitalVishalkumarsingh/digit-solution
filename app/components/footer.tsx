@@ -234,14 +234,14 @@ const Footer = () => {
           </p>
           <div style={{ display: "flex", gap: 20 }}>
             <Link href="/privacy-policy" style={{ color: "#475569", textDecoration: "none", fontSize: 13, transition: "color 0.2s" }}
-              onMouseEnter={(e: any) => (e.target.style.color = "#f97316")}
-              onMouseLeave={(e: any) => (e.target.style.color = "#475569")}
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#f97316")}
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#475569")}
             >
               Privacy Policy
             </Link>
             <Link href="/terms-and-conditions" style={{ color: "#475569", textDecoration: "none", fontSize: 13, transition: "color 0.2s" }}
-              onMouseEnter={(e: any) => (e.target.style.color = "#f97316")}
-              onMouseLeave={(e: any) => (e.target.style.color = "#475569")}
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#f97316")}
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#475569")}
             >
               Terms & Conditions
             </Link>
