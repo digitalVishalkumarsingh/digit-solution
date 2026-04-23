@@ -1,9 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function POST(req: { json: () => PromiseLike<{ name: any; phone: any; service: any; description: any; }> | { name: any; phone: any; service: any; description: any; }; }) {
+interface ContactPayload {
+  name?: string;
+  phone?: string;
+  service?: string;
+  description?: string;
+}
+
+export async function POST(req: NextRequest) {
   try {
-    const { name, phone, service, description } = await req.json();
+    const { name, phone, service, description } = (await req.json()) as ContactPayload;
 
     // Check if all necessary fields are provided
     if (!name || !phone || !service) {

@@ -136,7 +136,7 @@ export default function About() {
             </span>
           </h2>
           <p style={{ color: "#93b4d8", fontSize: 16, maxWidth: 560, margin: "0 auto" }}>
-            Varanasi's most trusted home appliance repair service — certified, fast, and guaranteed.
+            Varanasi&apos;s most trusted home appliance repair service — certified, fast, and guaranteed.
           </p>
         </motion.div>
 
@@ -208,7 +208,7 @@ export default function About() {
               <strong style={{ color: "#e2eaf5" }}>genuine parts</strong>, offer{" "}
               <strong style={{ color: "#e2eaf5" }}>competitive pricing</strong>, and back every
               repair with a <strong style={{ color: "#e2eaf5" }}>100% satisfaction guarantee</strong>.
-              We're available <strong style={{ color: "#fb923c" }}>24/7</strong> for prompt,
+              We&apos;re available <strong style={{ color: "#fb923c" }}>24/7</strong> for prompt,
               dependable service.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" as const }}>
@@ -311,7 +311,7 @@ export default function About() {
                 <span style={{ fontSize: 28 }}>🏆</span>
                 <div>
                   <div style={{ color: "#fb923c", fontWeight: 700, fontSize: 14 }}>
-                    Varanasi's #1 Repair Service
+                    Varanasi&apos;s #1 Repair Service
                   </div>
                   <div style={{ color: "#93b4d8", fontSize: 12 }}>
                     Trusted by 5000+ happy customers

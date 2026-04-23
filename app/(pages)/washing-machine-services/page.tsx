@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import Head from "next/head";
 
 interface Service {
   title: string;
@@ -49,19 +47,15 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function WashingMachineRepair() {
-  const router = useRouter();
-
   const handleBooking = (title: string) => {
-    router.push(`https://wa.me/9112564731?text=${encodeURIComponent(`Book Service: ${title}`)}`);
+    window.open(
+      `https://wa.me/917324802379?text=${encodeURIComponent(`Book Service: ${title}`)}`,
+      "_blank"
+    );
   };
 
   return (
     <>
-      <Head>
-        <title>Washing Machine Repair in Varanasi | Dizit Solution</title>
-        <meta name="description" content="Expert washing machine repair, installation, and maintenance services in Varanasi. Book now!" />
-      </Head>
-
       <div style={{ fontFamily: "'Sora', 'Segoe UI', sans-serif" }}>
 
         {/* ── HERO ── */}

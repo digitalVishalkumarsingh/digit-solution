@@ -146,7 +146,7 @@ export default function ContactPage() {
             </span>
           </h2>
           <p style={{ color: "#93b4d8", fontSize: 15, maxWidth: 500, margin: "0 auto" }}>
-            Have a question or need a repair? Reach out — we're available 24/7 across Varanasi.
+            Have a question or need a repair? Reach out — we&apos;re available 24/7 across Varanasi.
           </p>
         </motion.div>
 

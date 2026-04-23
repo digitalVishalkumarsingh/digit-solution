@@ -704,7 +704,7 @@ export default function Home() {
                   animate={{ opacity: 1, scale: 1 }}
                   style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 10, padding: "10px 14px", marginBottom: 16, fontSize: 13, color: "#15803d", fontWeight: 500, display: "flex", alignItems: "center", gap: 6 }}
                 >
-                  ✅ Request sent! We'll call you shortly.
+                  ✅ Request sent! We&apos;ll call you shortly.
                 </motion.div>
               )}
 
@@ -841,7 +841,7 @@ export default function Home() {
                 About Dizit Solution
               </h2>
               <p style={{ fontSize: 16, color: "#64748b", maxWidth: 560, margin: "0 auto" }}>
-                Varanasi's most trusted home appliance repair platform — serving LG, Samsung, Daikin, Whirlpool, Haier, and 20+ other brands.
+                Varanasi&apos;s most trusted home appliance repair platform — serving LG, Samsung, Daikin, Whirlpool, Haier, and 20+ other brands.
               </p>
             </motion.div>
 
@@ -939,7 +939,7 @@ export default function Home() {
             variants={fadeUp()}
           >
             <h2 style={{ fontSize: "clamp(22px,4vw,36px)", fontWeight: 800, color: "white", marginBottom: 12 }}>
-              Appliance Not Working? We'll Fix It Today.
+              Appliance Not Working? We&apos;ll Fix It Today.
             </h2>
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", marginBottom: 28 }}>
               Available 24/7 · Same-day booking · Varanasi & nearby areas

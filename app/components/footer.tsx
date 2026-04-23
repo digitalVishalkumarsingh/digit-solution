@@ -76,7 +76,7 @@ const Footer = () => {
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 20 }}>
           <div>
             <h3 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 4px", color: "white" }}>
-              Appliance Not Working? We'll Fix It Today.
+              Appliance Not Working? We&apos;ll Fix It Today.
             </h3>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", margin: 0 }}>
               Same-day service · Certified technicians · Varanasi & nearby areas

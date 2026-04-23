@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Head from "next/head";
 
 interface Service {
   title: string;
@@ -63,11 +62,6 @@ export default function ACServices() {
 
   return (
     <>
-      <Head>
-        <title>AC Repair & Services in Varanasi | Dizit Solution</title>
-        <meta name="description" content="Top-notch AC repair, servicing, and installation in Varanasi. Certified technicians, same-day service, 100% satisfaction guaranteed." />
-      </Head>
-
       <div style={{ fontFamily: "'Sora', 'Segoe UI', sans-serif" }}>
 
         {/* ── HERO ── */}
