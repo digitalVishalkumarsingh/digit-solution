@@ -39,7 +39,7 @@ A full-stack **Next.js 16** web application built end-to-end — from UX design 
 
 | Landing Page | Service Catalog | Booking Form |
 |:---:|:---:|:---:|
-| ![Home](public/Dizit-Solution.webp) | ![Services](public/repairman-doing-air-conditioner-service_1303-26541.avif) | ![Form](public/technician-repairing-home-appliance.webp) |
+| ![Home](public/homepage.png) | ![Services](public/repairman-doing-air-conditioner-service_1303-26541.avif) | ![Form](public/technician-repairing-home-appliance.webp) |
 
 > *Screenshots coming soon — visit the [live site](https://dizit-solution-virid.vercel.app) for the full experience.*
 
