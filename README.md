@@ -4,16 +4,17 @@
 
 ### Production-grade home-appliance repair platform for Varanasi, India
 
-A full-stack **Next.js 15** web application built end-to-end — from UX design and animated marketing pages to a serverless contact-to-email pipeline. Engineered for performance, SEO, mobile-first conversion, and zero-config Vercel deployment.
+A full-stack **Next.js 16** web application built end-to-end — from UX design and animated marketing pages to a serverless contact-to-email pipeline. Engineered for performance, SEO, mobile-first conversion, and zero-config Vercel deployment.
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js&style=for-the-badge)](https://nextjs.org/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-dizit--solution--virid.vercel.app-00C7B7?logo=vercel&logoColor=white&style=for-the-badge)](https://dizit-solution-virid.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&style=for-the-badge)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&style=for-the-badge)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white&style=for-the-badge)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38BDF8?logo=tailwindcss&logoColor=white&style=for-the-badge)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-FF0080?logo=framer&logoColor=white&style=for-the-badge)](https://www.framer.com/motion/)
-[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel&style=for-the-badge)](https://vercel.com/)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel&style=for-the-badge)](https://dizit-solution-virid.vercel.app)
 
-[**🌐 Live Demo**](#) · [**📂 Source**](https://github.com/digitalVishalkumarsingh/digit-solution) · [**📞 Contact Me**](#-lets-connect)
+[**🌐 Live Demo**](https://dizit-solution-virid.vercel.app) · [**📂 Source**](https://github.com/digitalVishalkumarsingh/digit-solution) · [**📞 Contact Me**](#-lets-connect)
 
 </div>
 
@@ -40,7 +41,7 @@ A full-stack **Next.js 15** web application built end-to-end — from UX design 
 |:---:|:---:|:---:|
 | ![Home](public/Dizit-Solution.webp) | ![Services](public/repairman-doing-air-conditioner-service_1303-26541.avif) | ![Form](public/technician-repairing-home-appliance.webp) |
 
-> *Screenshots coming soon — visit the [live site](#) for the full experience.*
+> *Screenshots coming soon — visit the [live site](https://dizit-solution-virid.vercel.app) for the full experience.*
 
 ---
 
@@ -60,11 +61,11 @@ A full-stack **Next.js 15** web application built end-to-end — from UX design 
 
 | Layer | Technology |
 |---|---|
-| **Framework** | Next.js 15 (App Router, Turbopack dev, Server Components) |
+| **Framework** | Next.js 16 (App Router, Turbopack, Server Components) |
 | **Language** | TypeScript 5 (strict mode) |
 | **UI Library** | React 19 |
 | **Styling** | Tailwind CSS 4 + inline styles + custom CSS-in-JS |
-| **Components** | Material UI v6, NextUI v2 |
+| **Components** | Material UI v6 |
 | **Animations** | Framer Motion 12 |
 | **Forms** | React Hook Form + native validation |
 | **Notifications** | SweetAlert2 |
@@ -142,16 +143,18 @@ npm run build && npm start
 ## 🧠 Engineering Decisions Worth Calling Out
 
 - **Migrated from Next.js Pages Router to App Router** — leveraging Server Components for static marketing content while reserving client components for interactivity.
-- **Replaced deprecated `next/image` props** (`layout="fill"`, `objectFit`) with the modern `fill` + `style` API for Next 15 compatibility.
+- **Upgraded to Next.js 16** to clear Vercel's CVE security gate and gain Turbopack production builds.
+- **Replaced deprecated `next/image` props** (`layout="fill"`, `objectFit`) with the modern `fill` + `style` API.
 - **Removed `next/head` usage in App Router pages** — a common anti-pattern that silently fails; replaced with the `metadata` export pattern.
-- **Hardened API route typing** — converted loose ad-hoc parameter types to `NextRequest` to satisfy Next 15's stricter `ParamCheck` constraint and unblock production builds.
-- **Force-pushed clean commit history** to a fresh GitHub repo after consolidating WIP branches.
+- **Hardened API route typing** — converted loose ad-hoc parameter types to `NextRequest` to satisfy Next's stricter `ParamCheck` constraint and unblock production builds.
+- **Eliminated dead dependencies** — removed the unused `@nextui-org/react` chain (228 transitive packages), cutting install size and clearing 40+ deprecation warnings.
+- **Strict typing end-to-end** — zero `any` in hot paths; hover handlers use `React.MouseEvent<HTMLAnchorElement>` with `e.currentTarget`.
 
 ---
 
 ## 🎯 Skills Demonstrated
 
-`Next.js 15` · `React 19` · `TypeScript` · `Server Components` · `App Router` · `Serverless Functions` · `Tailwind CSS` · `Framer Motion` · `Responsive Design` · `Accessibility (a11y)` · `SEO` · `Form Validation` · `REST API Design` · `SMTP Integration` · `Git/GitHub` · `CI/CD on Vercel` · `Performance Optimization` · `ESLint Configuration` · `Type-driven Development`
+`Next.js 16` · `React 19` · `TypeScript` · `Server Components` · `App Router` · `Serverless Functions` · `Tailwind CSS` · `Framer Motion` · `Responsive Design` · `Accessibility (a11y)` · `SEO` · `Form Validation` · `REST API Design` · `SMTP Integration` · `Git/GitHub` · `CI/CD on Vercel` · `Performance Optimization` · `ESLint Configuration` · `Type-driven Development`
 
 ---
 
